@@ -2,7 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class Header extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      cart: [],
+    };
+  }
+  componentWillMount() {
+    this.setState({
+      cart: JSON.parse(localStorage.getItem("cart")),
+    });
+  }
+  CartCount() {
 
+    return this.state.cart.length;
+  }
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -27,7 +41,47 @@ class Header extends React.Component {
                 Home
               </Link>
             </li>
-        
+            <li className="nav-item ">
+              <Link className="nav-link" to="/about">
+                About
+              </Link>
+            </li>
+
+            <li className="nav-item ">
+              {" "}
+              <Link className="nav-link" to="/contact">
+                Contact
+              </Link>
+            </li>
+            <li className="nav-item ">
+              {" "}
+              <Link className="nav-link" to="/shop">
+                Shop
+              </Link>
+            </li>
+          </ul>
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item ">
+              {" "}
+              <Link className="nav-link" to="/Login">
+                Login
+              </Link>
+            </li>
+            <li className="nav-item ">
+              {" "}
+              <Link className="nav-link" to="/Register">
+                Register
+              </Link>
+            </li>
+
+            <li className="nav-item ">
+              <Link className="nav-link" to="/cart">
+                <i className="fas fa-cart-plus"></i>
+                <span className="badge badge-warning" id="lblCartCount">
+                  {this.CartCount()}
+                </span>
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

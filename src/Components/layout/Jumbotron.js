@@ -1,6 +1,6 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
-class Home extends React.Component {
+import React, { Component } from "react";
+
+class Jumbotron extends Component {
   render() {
     return (
       <>
@@ -9,11 +9,13 @@ class Home extends React.Component {
             <h1 className="display-4 font-weight-normal text-white">
               Hello World !
             </h1>
-            <p className="lead font-weight-normal text-white">
-              React Task Day 3 Crud Operation Using Axios To Fetch Data From
-              online Server
+            <p
+              className="lead font-weight-normal text-white"
+              style={{ fontSize: 1.5 + "rem" }}
+            >
+              Welcome With React Final Project Simple E-commerce Functionality
             </p>
-            <a className="btn btn-outline-secondary text-white" href="/">
+            <a className="btn btn-outline-secondary text-white p-3" href="/">
               Coming soon
             </a>
           </div>
@@ -24,4 +26,4 @@ class Home extends React.Component {
     );
   }
 }
-export default Home;
+export default Jumbotron;
